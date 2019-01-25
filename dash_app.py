@@ -7,10 +7,11 @@ import numpy as np
  
 app = dash.Dash()
 
+raise Exception("You need to add the mabpox token")
 mapbox_token = ""
 
-df = pd.read_csv("data.csv")
-df_stages = pd.read_csv("stages.csv")
+df = pd.read_csv("data/data.csv")
+df_stages = pd.read_csv("data/stages.csv")
 
 df_markers = df.groupby(["latitude","longitude","date"]).agg(dict(product = lambda x: "%s" % ", ".join(x), hour = lambda x: "%s" % ", ".join(x)))
 df_markers.reset_index(inplace=True)
@@ -135,7 +136,7 @@ layout_heatmap = go.Layout(margin = dict(l=80, t=30))
 
 figure_heatmap = go.Figure(data = data_heatmap, layout = layout_heatmap)
 
-df_table = pd.read_csv("concerts_I_attended.csv").dropna(subset=["concert"])
+df_table = pd.read_csv("data/concerts_I_attended.csv").dropna(subset=["concert"])
 def colorFont(x):
     if x == "Yes":
        return "rgb(0,0,9)"

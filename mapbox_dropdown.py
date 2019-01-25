@@ -3,6 +3,7 @@ import plotly.offline as offline
 import pandas as pd
 import numpy as np
 
+raise Exception("You need to add the mabpox token")
 mapbox_token = ""
 
 df = pd.read_csv("data/data.csv")
